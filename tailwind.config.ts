@@ -12,6 +12,23 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        bounce: {
+          from: { transform: "scale(1.2)", opacity: "0" },
+          t0: { transform: "scale(1)", opacity: "1" },
+          // "0%": { transform: "scale(.5)" },
+          // "50%": { transform: "scale(1.2)" },
+          // "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.5s infinite",
+        bounce: "bounce 1.5s",
+      },
     },
   },
   plugins: [],
