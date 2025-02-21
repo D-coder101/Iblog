@@ -53,7 +53,7 @@ function AdminSideNav() {
               href={href}
               className="w-full flex gap-1.5 items-center justify-center rounded-l-full py-2 px-3"
             >
-              {Icon && <Icon />}
+              {Icon && <Icon size={15} />}
               {name}
             </Link>
           </li>
