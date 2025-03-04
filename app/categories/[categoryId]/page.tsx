@@ -9,7 +9,7 @@ import {
   FcIdea,
   FcGallery,
   FcMultipleDevices,
-  FcBusiness,
+  // FcBusiness,
   FcPlus,
   FcBusinessman,
 } from "react-icons/fc";

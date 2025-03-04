@@ -11,6 +11,7 @@ import ShareButton from "@/app/_components/ShareButton";
 import FollowAuthor from "@/app/_components/FollowAuthor";
 
 export default function Page({ params }) {
+  console.log(params);
   // const blog = await getBlog(params.blogId)
   // const blogId = params.blogId;
   // Blog {blogId}

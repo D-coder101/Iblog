@@ -1,6 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import "./globals.css";
 import { interFont } from "@/utils/fonts";
 import Header from "@/app/_components/Header";

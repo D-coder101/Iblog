@@ -12,6 +12,7 @@ import Link from "next/link";
 import BlogCard from "@/app/_components/BlogCard";
 
 function Page({ params }: { params: string | number }) {
+  console.log(params);
   return (
     <div className="px-3 pt-10 mb-40">
       <div className="md:max-w-5xl mx-auto w-full flex flex-col gap-2.5">

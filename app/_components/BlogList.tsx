@@ -7,6 +7,7 @@ interface filterProps {
 }
 
 async function BlogList({ filter, sortBy }: filterProps) {
+  console.log(filter, sortBy);
   //
   await new Promise((res) => setTimeout(res, 2000));
   //fetch blog
