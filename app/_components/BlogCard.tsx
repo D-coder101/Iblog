@@ -8,7 +8,7 @@ import Link from "next/link";
 import { FaHandsClapping } from "react-icons/fa6";
 // import { AiOutlineComment } from "react-icons/ai";
 import { FaBookmark } from "react-icons/fa";
-import { MdOutlineBookmarkAdd } from "react-icons/md";
+// import { MdOutlineBookmarkAdd } from "react-icons/md";
 import { IoIosChatbubbles } from "react-icons/io";
 import { SlOptions } from "react-icons/sl";
 {

@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Tech from "@/public/tech.jpg";
 import Dcoder from "@/public/dcoder.jpg";
-import { FaRegCalendarAlt, FaWhatsapp } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { GoBriefcase } from "react-icons/go";
-import { FaSquareXTwitter, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { TiSocialInstagram } from "react-icons/ti";
 import { GoDotFill } from "react-icons/go";
-import { FiClock } from "react-icons/fi";
+// import { FiClock } from "react-icons/fi";
 import Link from "next/link";
 import BlogCard from "@/app/_components/BlogCard";
 
-function Page({ params }) {
+function Page({ params }: { params: string | number }) {
   return (
     <div className="px-3 pt-10 mb-40">
       <div className="md:max-w-5xl mx-auto w-full flex flex-col gap-2.5">

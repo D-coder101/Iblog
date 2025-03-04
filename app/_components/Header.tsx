@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <header className="px-3 top-0 left-0 right-0 sticky z-20 bg-white shadow-md">
-      <div className="w-full md:max-w-7xl mx-auto flex items-center justify-between py-4">
+      <div className="h-[10vh] w-full md:max-w-7xl mx-auto flex items-center justify-between py-4">
         {/*Logo */}
         <Link href="/" className="font-bold text-2xl italic">
           iBlog

@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow: {
+        add: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
+      },
       keyframes: {
         shimmer: {
           "0%": { transform: "translateX(-100%)" },
