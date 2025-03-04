@@ -10,7 +10,11 @@ import BlogCard from "@/app/_components/BlogCard";
 import ShareButton from "@/app/_components/ShareButton";
 import FollowAuthor from "@/app/_components/FollowAuthor";
 
-export default function Page({ params }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ blogId: string }>;
+}) {
   console.log(params);
   // const blog = await getBlog(params.blogId)
   // const blogId = params.blogId;

@@ -19,13 +19,19 @@ type CategoryIcons = {
   [key: string]: React.ElementType;
 };
 
-interface PageProps {
-  params: {
-    categoryId: string;
-  };
-}
+// interface PageProps {
+//   params: {
+//     categoryId: string;
+//   };
+// }
 
-function Page({ params }: PageProps) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ categoryId: string }>;
+}) {
+  const { categoryId } = await params;
+
   const categoryIcons: CategoryIcons = {
     technology: FcElectronics,
     education: FcGraduationCap,
@@ -39,7 +45,7 @@ function Page({ params }: PageProps) {
     health: FcPlus,
   };
 
-  const SelectedIcon = categoryIcons[params.categoryId] || null;
+  const SelectedIcon = categoryIcons[categoryId] || null;
 
   return (
     <div className="px-3 pt-10 mb-40">
@@ -57,7 +63,7 @@ function Page({ params }: PageProps) {
               className=" object-cover "
               placeholder="blur"
             /> */}
-            {params.categoryId}
+            {categoryId}
           </span>
         </div>
 
@@ -73,5 +79,3 @@ function Page({ params }: PageProps) {
     </div>
   );
 }
-
-export default Page;

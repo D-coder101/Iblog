@@ -6,22 +6,16 @@ import BlogFallback from "../_components/BlogFallback";
 // Record<string, string | string[] | undefined>
 // URLSearchParams
 interface PageProps {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default function Page({ searchParams }: PageProps) {
+export default async function Page({ searchParams }: PageProps) {
   //filter
-  // const filter = searchParams.category ?? "all";
-  const filter =
-    (Array.isArray(searchParams.category)
-      ? searchParams.category[0]
-      : searchParams.category) ?? "all";
+  const { category, sortBy } = await searchParams; // const filter = searchParams.category ?? "all";
+  const filter = (Array.isArray(category) ? category[0] : category) ?? "all";
 
   //sortBy
-  const sortBy =
-    (Array.isArray(searchParams.sortBy)
-      ? searchParams.sortBy[0]
-      : searchParams.sortBy) ?? "new";
+  const sort = (Array.isArray(sortBy) ? sortBy[0] : sortBy) ?? "new";
 
   return (
     <section className="px-3 pt-10 pb-32">
@@ -51,7 +45,7 @@ export default function Page({ searchParams }: PageProps) {
 
         {/*Blogs */}
         <Suspense fallback={<BlogFallback />} key={`${filter}-${sortBy}}`}>
-          <BlogList filter={filter} sortBy={sortBy} />
+          <BlogList filter={filter} sortBy={sort} />
         </Suspense>
       </div>
     </section>

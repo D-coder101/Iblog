@@ -82,7 +82,11 @@ function Toggle({ children, id }: ListProps) {
       y: button.y + button.height + 8,
     });
 
-    openId === "" || openId !== id ? open(id) : close();
+    if (openId === "" || openId !== id) {
+      open(id);
+    } else {
+      close();
+    }
   }
 
   return cloneElement(children as React.ReactElement, { onClick: handleClick });

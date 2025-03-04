@@ -11,7 +11,11 @@ import { GoDotFill } from "react-icons/go";
 import Link from "next/link";
 import BlogCard from "@/app/_components/BlogCard";
 
-function Page({ params }: { params: string | number }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ authorId: string }>;
+}) {
   console.log(params);
   return (
     <div className="px-3 pt-10 mb-40">
@@ -104,5 +108,3 @@ function Page({ params }: { params: string | number }) {
     </div>
   );
 }
-
-export default Page;
