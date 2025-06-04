@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/admin/addBlog"
+    "app/(base_wrapper)/admin/addBlog"
   ],
   "exclude": ["node_modules"]
 }
