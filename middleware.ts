@@ -39,7 +39,7 @@ export async function middleware(req: NextRequest) {
   //check authenticated
   const refresh = serverCookies.get("refresh")?.value;
   if (!refresh) {
-    console.log("Hi from middleware");
+    // console.log("Hi from middleware");
     return NextResponse.redirect(
       url.origin + `/login?redirect=${url.pathname}`
     );

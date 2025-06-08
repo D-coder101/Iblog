@@ -1,4 +1,3 @@
-import { storeAccessToken } from "@/utils/helpers";
 import {
   auth_refresh_token_action,
   auth_update_refresh_token,
@@ -19,6 +18,7 @@ export const access_token_retrieve = async (): Promise<string | null> => {
         .then((newToken) => {
           console.log(newToken);
           if (newToken) {
+            console.log("stored new token in session-storage");
             sessionStorage.setItem("access", newToken);
             // storeAccessToken(newToken);
           }

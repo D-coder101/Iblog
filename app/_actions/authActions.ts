@@ -3,14 +3,14 @@
 import { httpClient } from "@/app/_adapters/axios";
 import { API_PATHS } from "@/utils/enums";
 import { getErrorMessage } from "@/utils/helpers";
-import { IActionState, LoginFormValues, SignupFormValues } from "@/utils/types";
+import { IActionState } from "@/utils/types";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { BASE_COOKIE_OPTIONS, REFRESH_TOKEN_LIFETIME } from "../_config";
 
 export async function registerAction(
-  initialState: SignupFormValues,
+  _: IActionState,
   formData: FormData
 ): Promise<IActionState> {
   const rawFormData = {
@@ -21,13 +21,11 @@ export async function registerAction(
 
   try {
     await httpClient.post(API_PATHS.REGISTRATION_PATH, rawFormData);
-    // const { access_token, refresh_token } = res.data;
 
     return {
       message: "Signup Success",
     };
   } catch (err) {
-    console.log(err);
     return {
       message: getErrorMessage(err),
     };
@@ -35,9 +33,10 @@ export async function registerAction(
 }
 
 export async function loginAction(
-  initialState: LoginFormValues,
+  _: IActionState,
   formData: FormData
 ): Promise<IActionState> {
+  const cookieStore = await cookies();
   const rawFormData = {
     identifier: formData.get("username") as string,
     password: formData.get("password") as string,
@@ -47,13 +46,13 @@ export async function loginAction(
     const res = await httpClient.post(API_PATHS.LOGIN_PATH, rawFormData);
     const { access_token, refresh_token } = res.data;
 
-    (await cookies()).set({
+    cookieStore.set({
       ...BASE_COOKIE_OPTIONS,
       value: access_token,
       httpOnly: false,
     });
 
-    (await cookies()).set({
+    cookieStore.set({
       ...BASE_COOKIE_OPTIONS,
       name: "refresh",
       value: refresh_token,
@@ -67,59 +66,61 @@ export async function loginAction(
       },
     };
   } catch (err) {
-    console.log(err);
     return {
-      //   errors: {
-      //     name: `${err}`,
-      //   },
       message: getErrorMessage(err),
     };
   }
 }
 
 export async function logoutAction() {
-  const _cookies = await cookies();
-  const refreshToken = _cookies.get("refresh")?.value;
+  const cookieStore = await cookies();
+  const refreshToken = cookieStore.get("refresh")?.value;
   console.log(refreshToken);
 
   if (!refreshToken) return;
 
-  try {
-    await httpClient.post(
-      API_PATHS.LOGOUT_PATH,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${refreshToken}`,
-        },
-      }
-    );
+  cookieStore.delete("access");
+  cookieStore.set({
+    ...BASE_COOKIE_OPTIONS,
+    name: "refresh",
+    value: "",
+    maxAge: 0,
+  });
 
-    _cookies.delete("access");
-    _cookies.set({
-      ...BASE_COOKIE_OPTIONS,
-      name: "refresh",
-      value: "",
-      maxAge: 0,
-    });
+  revalidatePath("/", "layout");
+  redirect("/login");
 
-    console.log("Logged out successfully");
+  // try {
+  //   await httpClient.post(
+  //     API_PATHS.LOGOUT_PATH,
+  //     {},
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${refreshToken}`,
+  //       },
+  //     }
+  //   );
 
-    // (await cookies()).set({
-    //   ...BASE_COOKIE_OPTIONS,
-    //   name: "refresh",
-    //   value: "",
-    //   maxAge: 0,
-    // });
+  //   console.log("success logout");
+  //   cookieStore.delete("access");
+  //   // cookieStore.delete("refresh");
+  //   cookieStore.set({
+  //     ...BASE_COOKIE_OPTIONS,
+  //     name: "refresh",
+  //     value: "",
+  //     maxAge: 0,
+  //   });
 
-    revalidatePath("/", "layout");
-    redirect("/login");
-  } catch (err) {
-    console.log(err);
-    // return {
-    //   message: "Failed to log out!",
-    // };
-  }
+  //   console.log("::> Logged out successfully");
+
+  //   revalidatePath("/", "layout");
+  //   redirect("/login");
+  // } catch (err) {
+  //   console.log(err);
+  //   // return {
+  //   //   message: "Failed to log out!",
+  //   // };
+  // }
 }
 
 export async function auth_refresh_token_action() {

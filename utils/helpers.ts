@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { isAxiosError } from "axios";
 import Cookies from "js-cookie";
 // import {JwtPayload, jwtDecode} from "jwt-decode"

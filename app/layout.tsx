@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 import "./globals.css";
-import { outfitFont } from "@/utils/fonts";
+// import { outfitFont } from "@/utils/fonts";
 import QueryProvider from "./providers";
 import { Toaster } from "react-hot-toast";
 // import { getSession } from "./_services/userServices";
@@ -24,7 +24,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${outfitFont.variable}`}>
+      <body className={``}>
         {/* <Header /> */}
         {/*QueryProvider wraps children inside a suspense boundary */}
         <Toaster

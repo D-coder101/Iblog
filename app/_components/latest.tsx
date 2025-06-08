@@ -4,7 +4,7 @@ import { IoArrowForward } from "react-icons/io5";
 
 function Latest() {
   return (
-    <section id="blog" className="px-3 py-20">
+    <section id="blog" className="px-3 pt-20">
       <div className="w-full md:max-w-6xl mx-auto space-y-8 ">
         <div className="flex items-center justify-between border-b-2 border-gray-200">
           <div className="relative md:text-2xl font-semibold py-3 before:left-0 before:w-full before:bg-black before:h-[2px] before:rounded-full before:bottom-0 before:absolute before:translate-y-[2px]">

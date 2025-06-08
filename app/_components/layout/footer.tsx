@@ -8,7 +8,7 @@ function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-white gap-x-4 gap-y-10">
         {/*section-1 about */}
         <div className="flex flex-col gap-3 text-center md:text-left max-w-[400px]">
-          <Link href="/" className="font-bold text-2xl italic">
+          <Link href="/" className="font-bold font-serif text-2xl italic">
             iBlog
           </Link>
           <p className="text-sm text-gray-400 font-medium">

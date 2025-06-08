@@ -24,7 +24,7 @@ function CategoryCard({ image, title }: ICategoryProp) {
         src={image}
         alt=""
         fill
-        className="object-cover group-hover/container:scale-110 transition-all duration-300 ease-in-out"
+        className="object-cover group-hover/container:scale-125 transition-all duration-300 ease-in-out"
         // placeholder="blur"
       />
     </div>

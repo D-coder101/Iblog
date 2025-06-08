@@ -1,6 +1,6 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 
-import { access_token_retrieve, auth_logout } from "./utils";
+import { access_token_retrieve } from "./utils";
 import { logoutAction } from "../_actions/authActions";
 
 const PUBLIC_ROUTES = [
@@ -26,7 +26,7 @@ const authInterceptor = async (config: InternalAxiosRequestConfig) => {
   // check if public route
   const publicRoute = PUBLIC_ROUTES.includes(config.url || "");
 
-  //attach token if not public route
+  // attach token if not public route
   if (!publicRoute) {
     const access_token = await access_token_retrieve();
 

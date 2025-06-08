@@ -14,10 +14,10 @@ interface ConfirmActionProps {
 
 export default function WarningAction({
   title,
-  resourceMessage,
+  // resourceMessage,
   onConfirm,
-  onCloseModal,
-  isDelete,
+  // onCloseModal,
+  // isDelete,
   isLoading,
 }: ConfirmActionProps) {
   return (

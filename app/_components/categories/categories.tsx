@@ -1,7 +1,3 @@
-import Link from "next/link";
-import { IoArrowForward } from "react-icons/io5";
-import BlogCard from "../blog/blog-card";
-import Image from "next/image";
 import CategoryCard from "./category-card";
 import Blog from "@/public/blog1.webp";
 
@@ -9,6 +5,8 @@ import Designer from "@/public/designer.jpg";
 import Developer from "@/public/developer.jpg";
 import Editor from "@/public/editor.jpg";
 import Gamer from "@/public/gamer.jpg";
+import Link from "next/link";
+import { IoArrowForward } from "react-icons/io5";
 
 function Categories() {
   return (
@@ -18,13 +16,13 @@ function Categories() {
           <div className="relative md:text-2xl font-semibold py-3 before:left-0 before:w-full before:bg-black before:h-[2px] before:rounded-full before:bottom-0 before:absolute before:translate-y-[2px]">
             Categories
           </div>
-          {/* <Link
-            href="/blog"
+          <Link
+            href="/categories"
             className="text-sm md:text-base flex items-center gap-2 font-semibold hover:underline transition-all duration-200 ease-in-out"
           >
             See all
             <IoArrowForward />
-          </Link> */}
+          </Link>
         </div>
 
         {/*contents  */}

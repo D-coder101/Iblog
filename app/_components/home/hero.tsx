@@ -1,14 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import heroBg from "@/public/heroBg2.jpg";
 // import avatar from "../../public/avatar.png";
-import { GoDotFill } from "react-icons/go";
-import Designer from "@/public/designer.jpg";
-import Developer from "@/public/developer.jpg";
-import Editor from "@/public/editor.jpg";
-import Gamer from "@/public/gamer.jpg";
-import Marketer from "@/public/marketer.jpg";
+
 import Tech from "@/public/tech1.jpg";
 import B2 from "@/public/b2.jpg";
 import B3 from "@/public/b3.jpg";

@@ -75,7 +75,7 @@ export default function LoginForm() {
     // Clear client-side errors
     setFormErrors({ username: "", password: "" });
 
-    if (state.message) {
+    if (state?.message) {
       if (state.message.toLowerCase().includes("success")) {
         toast.success(state.message);
         storeAccessToken(state.data?.token);
@@ -83,7 +83,7 @@ export default function LoginForm() {
         // Clear form values on successful submission
         setFormValues({ username: "", password: "" });
       } else {
-        toast.error("error");
+        toast.error(state.message);
       }
     }
   }, [state, router, redirectTo]);

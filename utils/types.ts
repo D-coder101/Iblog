@@ -19,6 +19,7 @@ export interface AuthLoginPayload extends BackendAPIResponse {
 
 export interface IActionState {
   data?: Record<string, any>;
+  // error?: string;
   errors?: Record<string, any>;
   message?: string;
 }

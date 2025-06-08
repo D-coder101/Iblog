@@ -34,32 +34,32 @@ function EditProfileForm() {
       <Form>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5">
           <CustomInput
-            textColor="text-black"
+            // textColor="text-black"
             label="Full Name"
             name="fullname"
             placeholder="Full Name"
-            labelClass="mb-1"
-            variant="plain"
-            border="border-slate-300"
+            // labelClass="mb-1"
+            // variant="plain"
+            // border="border-slate-300"
           />
           <CustomInput
-            textColor="text-black"
+            // textColor="text-black"
             label="Email"
             name="email"
             type="email"
             placeholder="example@gmail.com"
-            labelClass="mb-1"
-            variant="plain"
-            border="border-slate-300"
+            // labelClass="mb-1"
+            // variant="plain"
+            // border="border-slate-300"
           />
           <CustomInput
-            textColor="text-black"
+            // textColor="text-black"
             label="Username"
             name="username"
             placeholder="user10122"
-            labelClass="mb-1"
-            variant="plain"
-            border="border-slate-300"
+            // labelClass="mb-1"
+            // variant="plain"
+            // border="border-slate-300"
           />
           <CountrySelect
             label="Phone Number"
@@ -74,7 +74,7 @@ function EditProfileForm() {
               placeholder="Enter your bio..."
               label="Bio"
               labelClass="mb-1"
-              variant="plain"
+              // variant="plain"
             />
             {/* <textarea
               placeholder="Enter your bio..."

@@ -16,7 +16,6 @@ import { useGlobalStore } from "@/store/zustand-store";
 import Modal from "../../_context/modal-context";
 import ConfirmAction from "../modal-types/confirm-action";
 // import { useRouter } from "next/navigation";
-import { useLogout } from "@/app/_hooks/useLogout";
 import { SlSettings } from "react-icons/sl";
 import { IUser } from "@/utils/types";
 import { logoutAction } from "@/app/_actions/authActions";
@@ -58,7 +57,7 @@ function Header({ user }: IUser) {
   // const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { logout, isPending: isLoggingOut } = useLogout(); //logout function
+  // const { logout, isPending: isLoggingOut } = useLogout();
   const { updateHeaderHeight } = useGlobalStore((state) => state);
 
   // const user = true;
@@ -117,15 +116,15 @@ function Header({ user }: IUser) {
   //   onCloseModal();
   // };
 
-  const handleCloseModal = (onCloseModal: () => void) => {
-    logout(undefined, {
-      onSuccess: () => {
-        onCloseModal();
-        // router.push("/");
-        // updateFullName(values.username);
-      },
-    });
-  };
+  // const handleCloseModal = (onCloseModal: () => void) => {
+  //   logout(undefined, {
+  //     onSuccess: () => {
+  //       onCloseModal();
+  //       // router.push("/");
+  //       // updateFullName(values.username);
+  //     },
+  //   });
+  // };
 
   return (
     <header className="header px-3 sticky top-0 left-0 right-0 z-20 bg-white shadow">
@@ -205,7 +204,7 @@ function Header({ user }: IUser) {
                             {name}
                           </button>
                         </Modal.Open>
-                        <Modal.Window name="text">
+                        <Modal.Window name="text" allowOutsideClick>
                           <ConfirmAction
                             title="Logout"
                             action={logoutAction}

@@ -16,10 +16,10 @@ interface ConfirmActionProps {
 export default function ConfirmAction({
   title,
   resourceMessage,
-  onConfirm,
+  // onConfirm,
   onCloseModal,
   isDelete,
-  isLoading,
+  // isLoading,
   action,
 }: ConfirmActionProps) {
   return (
