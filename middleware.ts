@@ -64,7 +64,14 @@ export async function middleware(req: NextRequest) {
   // return NextResponse.next();
 }
 
-export const config = { matcher: ["/admin/:path*", "/settings/:path*"] };
+export const config = {
+  matcher: [
+    "/admin/:path*",
+    "/settings/:path*",
+    "/dashboard",
+    "/authors/:path*",
+  ],
+};
 
 // export const config = {
 //   matcher: [

@@ -9,9 +9,9 @@ const PUBLIC_ROUTES = [
   "auth/register",
   "auth/refresh",
 ];
+// || "http://localhost:3000/api/vi/";
 
-const apiBaseURL =
-  process.env.NEXT_PUBLIC_BASE_BACKEND_API || "http://localhost:3000/api/vi/";
+const apiBaseURL = process.env.NEXT_PUBLIC_BASE_BACKEND_API;
 
 // const isClient = typeof window !== "undefined";
 

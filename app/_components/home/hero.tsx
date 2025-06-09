@@ -34,7 +34,7 @@ function Hero() {
       //     : `${headerHeight}px`  ,
       // }}
     >
-      <div className="flex h-[40vh] md:h-[45vh] relative ">
+      <div className="flex h-[30vh] sm:h-[40vh] md:h-[45vh] relative ">
         {/* <div> */}
         <Carousel autoSlide={true} autoSlideInterval={3000}>
           {Slides.map((img, i) => (

@@ -4,15 +4,18 @@ import { useEffect } from "react";
 import { CgClose } from "react-icons/cg";
 import { links } from "../general/links";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { User } from "@/utils/types";
 
 interface SideNavProps {
   isOpen: boolean;
   onClose: () => void;
+  user: User | null;
 }
 
-export default function SideNav({ isOpen, onClose }: SideNavProps) {
+export default function SideNav({ isOpen, onClose, user }: SideNavProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     if (isOpen) {
@@ -80,20 +83,24 @@ export default function SideNav({ isOpen, onClose }: SideNavProps) {
               </li>
             ))}
 
-            <div className="flex px-2 gap-x-3 mt-2">
-              <Link
-                href="/login"
-                className="flex justify-center items-center py-2 px-6 text-sm lg:text-base font-medium rounded-md border-[1.5px] border-black"
-              >
-                Log in
-              </Link>
-              <Link
-                href="/signup"
-                className="focus:outline-0 flex rounded-md bg-black text-white justify-center items-center py-2 px-6 text-sm lg:text-base"
-              >
-                Sign up
-              </Link>
-            </div>
+            {!user ? (
+              <div className="flex px-2 gap-x-3 mt-2">
+                <button
+                  onClick={() => router.push("/login")}
+                  className="flex justify-center items-center py-2 px-6 text-sm lg:text-base font-medium rounded-md border-[1.5px] border-black"
+                >
+                  Log in
+                </button>
+                <button
+                  onClick={() => router.push("/signup")}
+                  className="focus:outline-0 flex rounded-md bg-black text-white justify-center items-center py-2 px-6 text-sm lg:text-base"
+                >
+                  Sign up
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </ul>
         </nav>
 

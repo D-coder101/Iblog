@@ -148,23 +148,9 @@ function Header({ user }: IUser) {
           {/* <button className="flex justify-center items-center p-2 rounded-lg bg-gray-100 border text-lg font-semibold">
             <FiSearch />
           </button> */}
-          <div className={`gap-x-2 ${!user ? "flex" : "hidden"}`}>
-            <Link
-              href="/login"
-              className="flex justify-center items-center py-2 px-3 text-sm  font-medium rounded-md border-[1.4px] border-black"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/signup"
-              className="focus:outline-0 hidden md:flex rounded-md bg-black text-white justify-center items-center py-2 px-3 text-sm"
-            >
-              Sign up
-            </Link>
-          </div>
 
           {/*dropdown */}
-          {user && (
+          {user ? (
             <div className="relative">
               <button
                 className="rounded-full border flex items-center gap-x-1.5 transition-all duration-200 ease-in-out p-1 md:py-1 md:px-1.5 hover:shadow-lg focus:outline-0"
@@ -222,11 +208,26 @@ function Header({ user }: IUser) {
                 ))}
               </ul>
             </div>
+          ) : (
+            <div className={`gap-x-2 flex`}>
+              <Link
+                href="/login"
+                className="flex justify-center items-center py-2 px-3 text-sm  font-medium rounded-md border-[1.4px] border-black"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="focus:outline-0 hidden md:flex rounded-md bg-black text-white justify-center items-center py-2 px-3 text-sm"
+              >
+                Sign up
+              </Link>
+            </div>
           )}
         </div>
       </div>
 
-      <SideNav isOpen={isOpen} onClose={closeSideNav} />
+      <SideNav isOpen={isOpen} onClose={closeSideNav} user={user} />
     </header>
   );
 }

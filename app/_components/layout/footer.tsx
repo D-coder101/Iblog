@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 function Footer() {
   return (
     <footer className="bottom-0 left-0 right-0 flex items-center justify-center bg-black py-14 px-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-white gap-x-4 gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-white gap-x-4 gap-y-10 md:max-w-[1200px]">
         {/*section-1 about */}
         <div className="flex flex-col gap-3 text-center md:text-left max-w-[400px]">
           <Link href="/" className="font-bold font-serif text-2xl italic">
